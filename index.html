@@ -1,66 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Компьютеры и будущее</title>
-    <!-- Подключение стилей CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Авторизация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: #f00;
+            margin-bottom: 16px;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="login-container">
+        <h2>Авторизация</h2>
+        <form id="loginForm">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
 
-    <header>
-        <h1>Компьютеры и будущее</h1>
-        <p>Исследуйте последние технологии и тренды</p>
-    </header>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
 
-    <nav>
-        <!-- Навигационные ссылки -->
-        <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#technologies">Технологии будущего</a></li>
-            <li><a href="#predictions">Прогнозы и Развитие</a></li>
-            <li><a href="#contact">Контакты</a></li>
-        </ul>
-    </nav>
+            <button type="button" onclick="login()">Войти</button>
 
-    <main>
-        <!-- Основное содержание сайта -->
-        <section id="home">
-            <h2>Главная страница</h2>
-            <p>Добро пожаловать на сайт о компьютерах и их будущем. Исследуйте последние технологии и тренды.</p>
-        </section>
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+    </div>
 
-        <section id="technologies">
-            <h2>Технологии будущего</h2>
-            <p>ПОСТАВТЕ 5 ПОЖАЛУЙСТА ✧/ᐠ-ꞈ-ᐟ\ </p>
-        </section>
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
 
-        <section id="predictions">
-            <h2>Прогнозы и Развитие</h2>
-            <!-- Здесь добавьте контент о прогнозах и развитии технологий -->
-        </section>
-    </main>
+            // Проверка логина и пароля в базе данных (здесь должен быть соответствующий код)
 
-    <footer>
-        <!-- Раздел с контактами и информацией о команде -->
-        <section id="contact">
-            <h2>Контакты</h2>
-            <p>64</p>
-            <!-- Форма обратной связи и другие контактные данные -->
-        </section>
-
-        <section id="about">
-            <h2> О нас</h2>
-            <!-- Информация о команде и миссии сайта -->
-        </section>
-    </footer>
-
-    <!-- Подключение скриптов JavaScript -->
-    <script src="script.js"></script>
-
+            // Перенаправление в зависимости от роли пользователя
+            switch (/* роль пользователя */) {
+                case 'Заказчик':
+                    window.location.href = 'экран_заказчика.html';
+                    break;
+                case 'Менеджер':
+                    window.location.href = 'экран_менеджера.html';
+                    break;
+                case 'Кладовщик':
+                    window.location.href = 'экран_кладовщика.html';
+                    break;
+                case 'Дирекция':
+                    window.location.href = 'экран_директора.html';
+                    break;
+                default:
+                    document.getElementById('errorMessage').innerHTML = 'Неправильный логин или пароль';
+            }
+        }
+    </script>
 </body>
-
 </html>
